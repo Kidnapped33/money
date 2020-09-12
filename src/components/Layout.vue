@@ -27,7 +27,6 @@ export default {
 }
 
 .money {
-    border: 2px solid red;
     overflow: auto;
     flex-grow: 1;
 }
