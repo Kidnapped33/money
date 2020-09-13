@@ -22,8 +22,7 @@ export default {
     border: 2px solid green;
     display: flex;
     flex-direction: column;
-    width: 100vh;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .money {
