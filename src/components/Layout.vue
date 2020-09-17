@@ -1,11 +1,9 @@
 <template>
-<div>
-    <div class="nav-border">
-        <div class="money">
-            <slot />
-        </div>
-        <Nav />
+<div class="layout-wrapper">
+    <div class="content" :class="classPrefix && `${classPrefix}-content`">
+        <slot />
     </div>
+    <Nav />
 </div>
 </template>
 
@@ -13,19 +11,19 @@
 import Vue from "vue";
 
 export default {
+    props: ["classPrefix"],
     name: "Layout"
 };
 </script>
 
 <style scoped>
-.nav-border {
-    border: 2px solid green;
+.layout-wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-.money {
+.content {
     overflow: auto;
     flex-grow: 1;
 }
