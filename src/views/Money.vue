@@ -11,10 +11,7 @@
 import NumberPad from "@/components/Money/NumberPad.vue";
 import Tags from "@/components/Money/Tags.vue";
 import Notes from "@/components/Money/Notes.vue";
-import Types from "@/components/Money/Types2.vue";
-import {
-    component
-} from "vue/types/umd";
+import Types from "@/components/Money/Types.vue";
 export default {
     name: "Money",
     components: {
