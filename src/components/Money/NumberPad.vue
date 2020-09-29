@@ -1,6 +1,6 @@
 <template>
 <div class="numberPad">
-    <div class="output">{{output}}</div>
+    <div class="output">{{ output }}</div>
     <div class="buttons">
         <button @click="inputContent">1</button>
         <button @click="inputContent">2</button>
@@ -23,8 +23,7 @@
 <script lang="ts">
 import Vue from "vue";
 import {
-    Component,
-    Prop
+    Component
 } from "vue-property-decorator";
 
 @Component
@@ -61,7 +60,9 @@ export default class numberPad extends Vue {
     clear() {
         this.output = "0";
     }
-    ok() {}
+    ok() {
+        this.$emit("update:value", this.output);
+    }
 }
 </script>
 

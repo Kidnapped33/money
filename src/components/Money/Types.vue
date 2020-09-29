@@ -16,12 +16,13 @@ import {
 
 @Component
 export default class Types extends Vue {
-    type = "-"; //"-"表示支出，'+'表示收入
+    @Prop() readonly value!: string;
+
     selectType(type: string) {
         if (type !== "-" && type !== "+") {
             throw new Error("type is unknown");
         }
-        this.type = type;
+        this.$emit("update:value", type);
     }
 }
 </script>

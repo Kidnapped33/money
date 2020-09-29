@@ -1,34 +1,44 @@
 <template>
-  <div class="tags">
+<div class="tags">
     <div class="new">
-      <button>新增标签</button>
+        <button @click="create">新增标签</button>
     </div>
     <ul class="current">
-      <li
-        v-for="tag in dataSource"
-        :key="tag"
-        :class="{selected:selectedTags.indexOf(tag)>=0}"
-        @click="toggle(tag)"
-      >{{tag}}</li>
+        <li v-for="tag in dataSource" :key="tag" :class="{selected:selectedTags.indexOf(tag)>=0}" @click="toggle(tag)">{{tag}}</li>
     </ul>
-  </div>
+</div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import { Component, Prop } from "vue-property-decorator";
+import {
+    Component,
+    Prop
+} from "vue-property-decorator";
 @Component
 export default class Tags extends Vue {
-  @Prop() dataSource: string[] | undefined;
-  selectedTags: string[] = [];
-  toggle(tag: string) {
-    const index = this.selectedTags.indexOf(tag);
-    if (index >= 0) {
-      this.selectedTags.splice(index, 1);
-    } else {
-      this.selectedTags.push(tag);
+    @Prop(Boolean) readonly dataSource: string[] | undefined;
+    selectedTags: string[] = [];
+    toggle(tag: string) {
+        const index = this.selectedTags.indexOf(tag);
+        if (index >= 0) {
+            this.selectedTags.splice(index, 1);
+        } else {
+            this.selectedTags.push(tag);
+        }
+        this.$emit("update:value", this.selectedTags);
     }
-  }
+    create() {
+        const name = prompt("请输入标签名");
+        if (name === "") {
+            window.alert("标签名不能为空");
+        } else if (this.dataSource) {
+            this.$emit("update:dataSource", [...this.dataSource, name]);
+        }
+        //不要更改外部数据
+        //if (this.dataSource) {
+        //this.dataSource.push(name!);
+    }
 }
 </script>
 
@@ -37,44 +47,44 @@ export default class Tags extends Vue {
 @import "~@/assets/style/reset.scss";
 
 .tags {
-  flex-grow: 0;
-  font-size: 14px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column-reverse;
-
-  > .current {
+    flex-grow: 0;
+    font-size: 14px;
+    padding: 16px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column-reverse;
 
-    > li {
-      $bg: #d9d9d9;
-      background: $bg;
-      $h: 24px;
-      height: $h;
-      line-height: $h;
-      border-radius: $h/2;
-      padding: 0 16px;
-      margin-right: 12px;
-      margin-top: 4px;
+    >.current {
+        display: flex;
+        flex-wrap: wrap;
 
-      &.selected {
-        background-color: darken($bg, 30%);
-        color: white;
-      }
+        >li {
+            $bg: #d9d9d9;
+            background: $bg;
+            $h: 24px;
+            height: $h;
+            line-height: $h;
+            border-radius: $h/2;
+            padding: 0 16px;
+            margin-right: 12px;
+            margin-top: 4px;
+
+            &.selected {
+                background-color: darken($bg, 30%);
+                color: white;
+            }
+        }
     }
-  }
 
-  > .new {
-    padding-top: 16px;
+    >.new {
+        padding-top: 16px;
 
-    button {
-      background: transparent;
-      border: none;
-      color: #999;
-      border-bottom: 1px solid;
-      padding: 0 4px;
+        button {
+            background: transparent;
+            border: none;
+            color: #999;
+            border-bottom: 1px solid;
+            padding: 0 4px;
+        }
     }
-  }
 }
 </style>
