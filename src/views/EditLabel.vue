@@ -3,8 +3,8 @@
     <div>
         <Icon name="left" />
         <span> 编辑标签</span>
-        <Notes fieldName="标签名" placeholder="请输入标签名" />
     </div>
+    <Notes fieldName="标签名" placeholder="请输入标签名" />
 </Layout>
 </template>
 
