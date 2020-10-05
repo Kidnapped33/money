@@ -49,6 +49,7 @@ export default class Tags extends Vue {
 @import "~@/assets/style/reset.scss";
 
 .tags {
+    background-color: white;
     flex-grow: 0;
     font-size: 14px;
     padding: 16px;
