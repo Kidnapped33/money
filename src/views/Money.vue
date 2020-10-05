@@ -2,7 +2,7 @@
 <Layout class-prefix="layout">
     <NumberPad :value.sync="record.amount" @sumbit="saveRecord" />
     <Types :value.sync="record.type" />
-    <Notes @update:value="onUpdateNotes" />
+    <Notes @ fieldName="备注" placeholder="在这里输入备注" update:value="onUpdateNotes" />
     <Tags :data-source.sync="tags" @update:value="onUpdateTags" />
 </Layout>
 </template>
@@ -32,7 +32,7 @@ const tagList = tagListModel.fetch();
     }
 })
 export default class Money extends Vue {
-    tags =  tagList; //["衣", "食", "住", "行"];
+    tags = tagList; //["衣", "食", "住", "行"];
     recordList: RecordItem[] = recordList;
     record: RecordItem = {
         tags: [],
