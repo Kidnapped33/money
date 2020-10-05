@@ -19,6 +19,7 @@ import {
 export default class FormItem extends Vue {
     // name: "Notes";
     value = "";
+@Prop({default:''})value!: string;
 
     @Prop({
         required: true
