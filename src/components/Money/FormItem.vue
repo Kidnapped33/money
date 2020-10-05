@@ -1,58 +1,57 @@
 <template>
-<div>
-    <label class="formItem">
-        <span class="name">{{ this.fieldName }}</span>
-        <input type="text"
-               :value="value"
-               @input="onValueChange($event.target.value)"
-               :placeholder="this.placeholder" >
-    </label>
-</div>
+    <div>
+        <label class="formItem">
+            <span class="name">{{ this.fieldName }}</span>
+            <input type="text"
+                   :value="value"
+                   @input="onValueChange($event.target.value)"
+                   :placeholder="placeholder">
+        </label>
+    </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import {
-    Component,
-    Watch,
-    Prop
-} from "vue-property-decorator";
+    import Vue from "vue";
+    import {
+        Component,
+        Watch,
+        Prop
+    } from "vue-property-decorator";
 
-@Component
-export default class FormItem extends Vue {
-    // name: "Notes";
-    @Prop({default:''}) readonly value!: string;
+    @Component
+    export default class FormItem extends Vue {
+        // name: "Notes";
+        @Prop({default: ''}) readonly value!: string;
 
-    @Prop({required: true}) fieldName!: string;
-    @Prop() placeholder? : string;
+        @Prop({required: true}) fieldName!: string;
+        @Prop() placeholder?: string;
 
-    @Watch("value")
-    onValueChange(value: string) {
-        this.$emit("update:value", value);
+        onValueChange(value: string) {
+            this.$emit("update:value", value);
+        }
     }
-}
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/style/helper.scss";
-@import "~@/assets/style/reset.scss";
+    @import "~@/assets/style/helper.scss";
+    @import "~@/assets/style/reset.scss";
 
-.formItem {
-    display: flex;
-    font-size: 14px;
-    padding-left: 16px;
-    align-items: center;
+    .formItem {
+        display: flex;
+        font-size: 14px;
+        padding-left: 16px;
+        align-items: center;
 
-    >.name {
-        padding-right: 16px;
+        > .name {
+            padding-right: 16px;
+        }
+
+        > input {
+            height: 40px;
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            padding-right: 16px;
+        }
     }
-
-    >input {
-        height: 40px;
-        flex-grow: 1;
-        background: transparent;
-        border: none;
-        padding-right: 16px;
-    }
-}
 </style>
