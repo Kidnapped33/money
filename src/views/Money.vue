@@ -3,7 +3,9 @@
     <NumberPad :value.sync="record.amount" @sumbit="saveRecord" />
     <Types :value.sync="record.type" />
     <div class="notes">
-        <FormItem @ fieldName="备注" placeholder="在这里输入备注" @update:value="onUpdateNotes" />
+        <FormItem fieldName="备注"
+                  placeholder="在这里输入备注"
+                  @update:value="onUpdateNotes" />
     </div>
     <Tags :data-source.sync="tags" @update:value="onUpdateTags" />
 </Layout>
@@ -13,7 +15,7 @@
 import Vue from "vue";
 import NumberPad from "@/components/Money/NumberPad.vue";
 import Tags from "@/components/Money/Tags.vue";
-import FormItem from "@/components/Money/FromTItem.vue";
+import FormItem from "@/components/Money/FormItem.vue";
 import Types from "@/components/Money/Types.vue";
 import {
     Component,
