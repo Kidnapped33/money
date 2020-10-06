@@ -24,12 +24,8 @@
     import FormItem from "@/components/Money/FormItem.vue";
     import Button from "@/components/Button.vue";
 
-
     @Component({
-        components: {
-            FormItem,
-            Button
-        }
+        components: {FormItem, Button}
     })
     export default class EditLabel extends Vue {
         tag?: Tag = undefined;
