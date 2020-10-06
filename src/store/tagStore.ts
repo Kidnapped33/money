@@ -15,19 +15,19 @@ const tagStore = {
     findTag(id: string) {
         return this.tagList.filter(t => t.id === id)[0];
     },
-    createTag(name: string) {
-        const names = this.tagList.map(item => item.name);
-        if (names.indexOf(name) >= 0) {
-            window.alert("标签名已存在");
-            return "duplicated";
-        }
-        const id = (createId().toString());
-        this.tagList.push({id, name: name});
-        this.saveTags();
-        window.alert("添加成功");
-        return "success";
-
-    },
+    // createTag(name: string) {
+    //     const names = this.tagList.map(item => item.name);
+    //     if (names.indexOf(name) >= 0) {
+    //         window.alert("标签名已存在");
+    //         return "duplicated";
+    //     }
+    //     const id = (createId().toString());
+    //     this.tagList.push({id, name: name});
+    //     this.saveTags();
+    //     window.alert("添加成功");
+    //     return "success";
+    //
+    // },
     removeTag(id: string) {
         let index = -1;
         for (let i = 0; i < this.tagList.length; i++) {
@@ -56,9 +56,9 @@ const tagStore = {
             return "not found";
         }
     },
-    saveTags() {
-        window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.tagList));
-    }
+    // saveTags() {
+    //     window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.tagList));
+    // }
 };
 
 tagStore.fetchTags();
