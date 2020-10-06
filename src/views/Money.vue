@@ -25,7 +25,6 @@
     import tagListModel from "@/models/tagListModel";
 
     const recordList = recordListModel.fetch();
-    const tagList = tagListModel.fetch();
 
     @Component({
         components: {
@@ -36,7 +35,7 @@
         }
     })
     export default class Money extends Vue {
-        tags = tagList; //["衣", "食", "住", "行"];
+        tags = window.tagList; //["衣", "食", "住", "行"];
         recordList: RecordItem[] = recordList;
         record: RecordItem = {
             tags: [],
