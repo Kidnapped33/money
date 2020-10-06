@@ -9,7 +9,8 @@
             </div>
             <div class="createTag-wrapper">
                 <Button class="createTag"
-                        @click="createTag">新建标签</Button>
+                        @click="createTag">新建标签
+                </Button>
             </div>
         </Layout>
     </div>
@@ -27,13 +28,12 @@
 
     @Component({
         components: {Button},
-        computed: {
-            tags() {
-                return this.$store.state.tagList;
-            }
-        }
     })
     export default class Label extends mixins(TagHelper) {
+        get tags() {
+            return this.$store.state.currentTag;
+        }
+
         beforeCreate() {
             this.$store.commit('fetchTags');
         }
