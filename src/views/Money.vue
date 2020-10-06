@@ -20,6 +20,7 @@
     import {
         Component,
     } from "vue-property-decorator";
+    import store from "@/store/index2";
 
 
     @Component({
@@ -31,8 +32,8 @@
         }
     })
     export default class Money extends Vue {
-        tags = window.tagList;//["衣", "食", "住", "行"];
-        recordList = window.recordList;
+        tags = store.tagList;//["衣", "食", "住", "行"];
+        recordList = store.recordList;
         record: RecordItem = {
             tags: [],
             notes: "",
@@ -49,7 +50,7 @@
         }
 
         saveRecord() {
-            window.createRecord(this.record)
+            store.createRecord(this.record);
         }
     }
 </script>
