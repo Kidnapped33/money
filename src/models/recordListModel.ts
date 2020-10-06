@@ -2,26 +2,26 @@ import clone from "@/lib/clone";
 
 const localStorageKeyName = "recordList";
 const recordListModel = {
-        data: [] as RecordItem[],
-        create(record: RecordItem) {
-            const record2: RecordItem = clone(record);
-            record2.createdAt = new Date();
-            this.data.push(record2);
-        },
-        //fetch  接来；到达；取来
-        //获取数据
-        fetch() {
-            //const recordList: Record[] = (变成return)
-            this.data = JSON.parse(
-                window.localStorage.getItem(localStorageKeyName) || "[]"
-            );
-            return this.data
-        },
-        //保存数据
-        save() {
-            window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.data));
-        }
+    data: [] as RecordItem[],
+    create(record: RecordItem) {
+        const record2: RecordItem = clone(record);
+        record2.createdAt = new Date();
+        this.data.push(record2);
+        this.save();
+    },
+    //fetch  接来；到达；取来
+    //获取数据
+    fetch() {
+        //const recordList: Record[] = (变成return)
+        this.data = JSON.parse(
+            window.localStorage.getItem(localStorageKeyName) || "[]"
+        );
+        return this.data
+    },
+    //保存数据
+    save() {
+        window.localStorage.setItem(localStorageKeyName, JSON.stringify(this.data));
     }
-;
+};
 
 export default recordListModel
