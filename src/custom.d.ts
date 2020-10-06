@@ -1,5 +1,3 @@
-import Tags from "@/components/Money/Tags.vue";
-
 type RecordItem = {
     tags: string[];
     notes: string;
@@ -12,7 +10,6 @@ type Tag = {
     id: string;
     name: string;
 }
-
 type TagListModel = {
     data: Tag[];
     fetch: () => Tag[];
@@ -23,6 +20,6 @@ type TagListModel = {
 }
 
 interface Window {
-    tagList: Tags[];
-
+    tagList: Tag[];
+    createTag: (name: string) => void;
 }
