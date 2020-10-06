@@ -19,10 +19,9 @@
     import {
         Component
     } from "vue-property-decorator";
-    import tagListModel from "@/models/tagListModel";
     import Button from "@/components/Button.vue";
 
-    @Component
+    @Component({components: {Button}})
     export default class Label extends Vue {
         tags = window.tagList;
 
