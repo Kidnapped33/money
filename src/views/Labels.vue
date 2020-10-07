@@ -17,21 +17,17 @@
 </template>
 
 <script lang="ts">
-    import Vue from "vue";
     import {Component} from "vue-property-decorator";
     import Button from "@/components/Button.vue";
     import {mixins} from "vue-class-component";
     import TagHelper from "@/mixins/TagHelper";
-    // /* eslint-disable */
-    // const tagHelper: any = require("@/mixins/TagHelper");
-    // /* eslint-disable */
 
     @Component({
         components: {Button},
     })
     export default class Label extends mixins(TagHelper) {
         get tags() {
-            return this.$store.state.currentTag;
+            return this.$store.state.tagList;
         }
 
         beforeCreate() {
@@ -64,7 +60,7 @@
     }
 
     .createTag {
-        background-color: #767676;
+        /*background-color: #767676;*/
         color: white;
         border-radius: 4px;
         border: none;
