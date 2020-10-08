@@ -23,7 +23,6 @@
     import Tabs from "@/components/Tabs.vue";
     import recordTypeList from "@/constants/recordTypeList";
 
-
     @Component({
         components: {Tabs, NumberPad, Tags, FormItem},
     })
@@ -33,7 +32,6 @@
         }
 
         recordTypeList = recordTypeList;
-
         record: RecordItem = {
             tags: [], notes: "", type: "-", amount: 0
         };
@@ -52,7 +50,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .layout-content {
         display: flex;
         flex-direction: column-reverse;

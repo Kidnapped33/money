@@ -1,9 +1,14 @@
+type RootState = {
+    recordList: RecordItem[];
+    tagList: Tag[];
+    currentTag?: Tag;
+}
 type RecordItem = {
     tags: string[];
     notes: string;
     type: string;
     amount: number;
-    createdAt?: Date;
+    createdAt?: string;
 };
 
 type Tag = {
@@ -19,15 +24,4 @@ type TagListModel = {
     save: () => void;
 }
 
-interface Window {
-    // store: {
-    //     tagList: Tag[];
-    //     createTag: (name: string) => void;
-    //     findTag: (id: string) => Tag | undefined;
-    //     removeTag: (id: string) => boolean;
-    //     updateTag: (id: string, name: string) => 'success' | 'not found' | 'duplicated';
-    //     // updateTag: TagListModel['update']
-    //     recordList: RecordItem[];
-    //     createRecord: (record: RecordItem) => void;
-    // }
-}
+interface Window {}
