@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-    import Vue from "vue";
+    // import Vue from "vue";
     import {Component} from "vue-property-decorator";
     import TagHelper from "@/mixins/TagHelper";
     import {mixins} from "vue-class-component";
@@ -49,9 +49,9 @@
 
     .tags {
         background-color: white;
-        flex-grow: 0;
         font-size: 14px;
         padding: 16px;
+        flex-grow: 1;
         display: flex;
         flex-direction: column-reverse;
 
