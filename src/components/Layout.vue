@@ -1,30 +1,30 @@
 <template>
-<div class="layout-wrapper">
-    <div class="content" :class="classPrefix && `${classPrefix}-content`">
-        <slot />
+    <div class="layout-wrapper">
+        <div class="content" :class="classPrefix && `${classPrefix}-content`">
+            <slot/>
+        </div>
+        <Nav/>
     </div>
-    <Nav />
-</div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+    import Vue from "vue";
 
-export default {
-    props: ["classPrefix"],
-    name: "Layout"
-};
+    export default {
+        props: ["classPrefix"],
+        name: "Layout"
+    };
 </script>
 
 <style scoped>
-.layout-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+    .layout-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
 
-.content {
-    overflow: auto;
-    flex-grow: 1;
-}
+    .content {
+        overflow: auto;
+        flex-grow: 1;
+    }
 </style>

@@ -6,9 +6,10 @@
         <div class="notes">
             <FormItem fieldName="备注"
                       placeholder="在这里输入备注"
+                      :value="record.notes"
                       @update:value="onUpdateNotes"/>
         </div>
-        <Tags/>
+        <Tags @update:value="record.tags=$event"/>
     </Layout>
 </template>
 
@@ -45,7 +46,14 @@
         }
 
         saveRecord() {
+            if (!this.record.tags.length || this.record.tags.length === 0) {
+                return window.alert("别忘了选择标签哦~");
+            }
             this.$store.commit('createRecord', this.record);
+            if (this.$store.state.createRecordError === null) {
+                window.alert("已保存");
+                this.record.notes = '';
+            }
         }
     }
 </script>
