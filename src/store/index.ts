@@ -36,7 +36,7 @@ const store = new Vuex.Store({
             let index = -1;
             for (let i = 0; i < state.tagList.length; i++) {
                 if (state.tagList[i].id === id) {
-                    index = 1;
+                    index = i;
                     break;
                 }
             }
