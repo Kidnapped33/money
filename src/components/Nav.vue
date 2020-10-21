@@ -1,20 +1,20 @@
 <template>
-  <nav>
+<nav>
     <router-link to="/money" class="item" active-class="selected">
-      <Icon name="money" />记账
+        <Icon name="money" />记账
     </router-link>
     <router-link to="/labels" class="item" active-class="selected">
-      <Icon name="label" />标签
+        <Icon name="label" />标签
     </router-link>
     <router-link to="/statistics" class="item" active-class="selected">
-      <Icon name="statistics" />统计
+        <Icon name="statistics" />统计
     </router-link>
-  </nav>
+</nav>
 </template>
 
 <script lang="ts">
 export default {
-  name: "Nav"
+    name: "Nav"
 };
 </script>
 
@@ -22,27 +22,28 @@ export default {
 @import "~@/assets/style/helper.scss";
 
 nav {
-  @extend %outerShadow;
-  display: flex;
-  flex-direction: row;
-  font-size: 12px;
-
-  > .item {
-    padding: 2px 0;
-    width: 33.33333%;
+    @extend %outerShadow;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+    flex-direction: row;
+    font-size: 12px;
 
-  .icon {
-    width: 32px;
-    height: 32px;
-  }
+    >.item {
+        padding: 2px 0;
+        width: 33.33333%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 
-  .item.selected {
-    color: $color-highlight;
-  }
+    .icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .item.selected {
+        color: white;
+        background-color: rgb(211, 150, 167);
+    }
 }
 </style>
