@@ -83,7 +83,7 @@ export default class Statistics extends Vue {
         }
         type Result = {
             title: string;
-            total ? : number;
+            total? : number;
             items: RecordItem[];
         } [];
         const result: Result = [{
